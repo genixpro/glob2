@@ -665,9 +665,9 @@ dei quali
 [ok]
 Ok
 [old islands terrain]
-Vecchie isole casuali
+Arcipelago Frastagliato
 [old random terrain]
-Vecchio terreno casuale
+Costa Frammentata
 [on press]
 Premuto
 [On the spot]
@@ -1425,9 +1425,9 @@ Medio - Sperimentale
 [No AI orders]
 Nessun comando dell'IA
 [Old islands]
-Isole (vecchio generatore)
+Arcipelago Frastagliato
 [Old random]
-Casuale (vecchio generatore)
+Costa Frammentata
 [Open at least one colony to start a match.]
 Apri almeno una colonia per iniziare una partita.
 [Open book]
@@ -1620,3 +1620,9 @@ Battaglia veloce su mappe già pronte: cambia solo la velocità (doppia velocit�
 Genera un'anteprima per esplorare questo mondo.
 [More workers jump-start colony growth. Changes the generated map.]
 Più operai accelerano la crescita della colonia. Questa impostazione modifica la mappa generata.
+[Channel width]
+Larghezza del canale
+[Land bridge width]
+Larghezza del ponte terrestre
+[Lake size]
+Dimensione del lago

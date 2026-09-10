@@ -603,9 +603,9 @@ os quais
 [ok]
 Ok
 [old islands terrain]
-velhas ilhas aleatórias
+Arquipélago Acidentado
 [old random terrain]
-velho terreno aleatório
+Costa Fragmentada
 [on press]
 Ao apertar
 [On the spot]
@@ -1359,9 +1359,9 @@ Médio - Experimental
 [No AI orders]
 Sem ordens da IA
 [Old islands]
-Ilhas (gerador antigo)
+Arquipélago Acidentado
 [Old random]
-Aleatório (gerador antigo)
+Costa Fragmentada
 [Open at least one colony to start a match.]
 Abra pelo menos uma colônia para iniciar uma partida.
 [Open book]
@@ -1554,3 +1554,9 @@ Batalha rápida em mapas prontos: apenas a velocidade muda (velocidade dupla).
 Gere uma prévia para explorar este mundo.
 [More workers jump-start colony growth. Changes the generated map.]
 Mais trabalhadores aceleram o crescimento das colônias. Esta configuração altera o mapa gerado.
+[Channel width]
+Largura do canal
+[Land bridge width]
+Largura da ponte de terra
+[Lake size]
+Tamanho do lago

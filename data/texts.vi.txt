@@ -617,9 +617,9 @@ trong đó có
 [ok]
 Đồng ý
 [old islands terrain]
-đảo ngẫu nhiên kiểu cũ
+Quần Đảo Gồ Ghề
 [old random terrain]
-địa hình ngẫu nhiên kiểu cũ
+Bờ Biển Chia Cắt
 [on press]
 Khi nhấn
 [On the spot]
@@ -1359,9 +1359,9 @@ Trung bình - Thử nghiệm
 [No AI orders]
 Không có lệnh AI
 [Old islands]
-Đảo kiểu cũ
+Quần Đảo Gồ Ghề
 [Old random]
-Ngẫu nhiên kiểu cũ
+Bờ Biển Chia Cắt
 [Open at least one colony to start a match.]
 Mở ít nhất một thuộc địa để bắt đầu trận đấu.
 [Open book]
@@ -1554,3 +1554,9 @@ Trận chiến nhanh trên bản đồ được tạo sẵn: chỉ có tốc đ�
 Tạo bản xem trước để khám phá thế giới này.
 [More workers jump-start colony growth. Changes the generated map.]
 Nhiều công nhân hơn đẩy nhanh sự phát triển của thuộc địa. Cài đặt này thay đổi bản đồ được tạo.
+[Channel width]
+Độ rộng kênh
+[Land bridge width]
+Độ rộng cầu đất
+[Lake size]
+Kích thước hồ

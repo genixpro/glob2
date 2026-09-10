@@ -607,9 +607,9 @@ da kiuj, estas
 [ok]
 Bone!
 [old islands terrain]
-Insuloj, Hazarde
+Kruta Insularo
 [old random terrain]
-Tereno, Hazarde
+Fragmentita Marbordo
 [on press]
 Premo
 [On the spot]
@@ -1361,9 +1361,9 @@ Meza - Eksperimenta
 [No AI orders]
 Neniuj AI-komandoj
 [Old islands]
-Insuloj (malnova generatoro)
+Kruta Insularo
 [Old random]
-Hazarda (malnova generatoro)
+Fragmentita Marbordo
 [Open at least one colony to start a match.]
 Malfermu almenaŭ unu kolonion por komenci matĉon.
 [Open book]
@@ -1556,3 +1556,9 @@ Rapida batalo sur antaŭfaritaj mapoj: nur la rapideco ŝanĝiĝas (duobla rapid
 Generu antaŭrigardon por esplori ĉi tiun mondon.
 [More workers jump-start colony growth. Changes the generated map.]
 Pli da laboristoj akcelas kolonian kreskon. Ĉi tiu agordo ŝanĝas la generitan mapon.
+[Channel width]
+Larĝo de kanalo
+[Land bridge width]
+Larĝo de terponto
+[Lake size]
+Grandeco de lago

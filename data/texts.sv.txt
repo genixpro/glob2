@@ -613,9 +613,9 @@ varav
 [ok]
 Ok
 [old islands terrain]
-Gamla slumpmässiga öar
+Karg skärgård
 [old random terrain]
-Gammal slumpmässig terräng
+Splittrad kust
 [on press]
 Vid tryck
 [On the spot]
@@ -1373,9 +1373,9 @@ Medium - Experimentell
 [No AI orders]
 Inga AI-kommandon
 [Old islands]
-Gamla öar
+Karg skärgård
 [Old random]
-Äldre slumpgenerator
+Splittrad kust
 [Open at least one colony to start a match.]
 Öppna minst en koloni för att starta en match.
 [Open book]
@@ -1568,3 +1568,9 @@ Snabb strid på färdiga kartor: endast hastigheten ändras (dubbel hastighet).
 Skapa en förhandsvisning för att utforska den här världen.
 [More workers jump-start colony growth. Changes the generated map.]
 Fler arbetare påskyndar kolonitillväxten. Den här inställningen ändrar den genererade kartan.
+[Channel width]
+Kanalbredd
+[Land bridge width]
+Landbrons bredd
+[Lake size]
+Sjöstorlek

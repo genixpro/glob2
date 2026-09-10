@@ -605,9 +605,9 @@ dintre care
 [ok]
 Acceptă
 [old islands terrain]
-insule aleatorii vechi
+Arhipelag Accidentat
 [old random terrain]
-teren aleatoriu vechi
+Coastă Fragmentată
 [on press]
 La apăsare
 [On the spot]
@@ -1363,9 +1363,9 @@ Mediu - Experimental
 [No AI orders]
 Fără ordine IA
 [Old islands]
-Insule vechi
+Arhipelag Accidentat
 [Old random]
-Vechi aleatoriu
+Coastă Fragmentată
 [Open at least one colony to start a match.]
 Deschide cel puțin o colonie pentru a începe un meci.
 [Open book]
@@ -1558,3 +1558,9 @@ Luptă rapidă pe hărți prefabricate: doar viteza se schimbă (viteză dublă)
 Generați o previzualizare pentru a explora această lume.
 [More workers jump-start colony growth. Changes the generated map.]
 Mai mulți muncitori accelerează creșterea coloniei. Această setare modifică harta generată.
+[Channel width]
+Lățimea canalului
+[Land bridge width]
+Lățimea punții de uscat
+[Lake size]
+Mărimea lacului

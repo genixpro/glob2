@@ -619,9 +619,9 @@ there are
 [ok]
 Ok
 [old islands terrain]
-old random islands
+Rugged Archipelago
 [old random terrain]
-old random terrain
+Shattered Coast
 [on press]
 On Press
 [On the spot]
@@ -1361,9 +1361,9 @@ Medium - Experimental
 [No AI orders]
 No AI orders
 [Old islands]
-Old islands
+Rugged Archipelago
 [Old random]
-Old random
+Shattered Coast
 [Open at least one colony to start a match.]
 Open at least one colony to start a match.
 [Open book]
@@ -1556,3 +1556,9 @@ Quick clash on premade maps: only speed changes (2x).
 Generate a preview to explore this world.
 [More workers jump-start colony growth. Changes the generated map.]
 More workers jump-start colony growth. Changes the generated map.
+[Channel width]
+Channel width
+[Land bridge width]
+Land bridge width
+[Lake size]
+Lake size

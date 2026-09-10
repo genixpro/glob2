@@ -677,9 +677,9 @@ heraf
 [ok]
 Ok
 [old islands terrain]
-Gamle tilfældige øer
+Barsk øgruppe
 [old random terrain]
-Gammelt tilfældigt terræn
+Opsplittet kyst
 [on press]
 Ved tryk
 [On the spot]
@@ -1439,9 +1439,9 @@ Medium - Eksperimentel
 [No AI orders]
 Ingen AI-kommandoer
 [Old islands]
-Gamle øer
+Barsk øgruppe
 [Old random]
-Gammel tilfældig
+Opsplittet kyst
 [Open at least one colony to start a match.]
 Åbn mindst én koloni for at starte en kamp.
 [Open book]
@@ -1634,3 +1634,9 @@ Hurtig kamp på forudlavede kort: kun hastigheden ændres (dobbelt hastighed).
 Generer en forhåndsvisning for at udforske denne verden.
 [More workers jump-start colony growth. Changes the generated map.]
 Flere arbejdere fremskynder kolonivæksten. Denne indstilling ændrer det genererede kort.
+[Channel width]
+Kanalbredde
+[Land bridge width]
+Landbroens bredde
+[Lake size]
+Søstørrelse

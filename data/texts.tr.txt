@@ -611,9 +611,9 @@ ayrintilar:
 [ok]
 Tamam
 [old islands terrain]
-eski rastgele adalar
+Engebeli Takımadalar
 [old random terrain]
-eski rastgele arazi
+Parçalı Kıyı
 [on press]
 Basınca
 [On the spot]
@@ -1371,9 +1371,9 @@ Orta - Deneysel
 [No AI orders]
 Yapay zekâ emri yok
 [Old islands]
-Eski adalar
+Engebeli Takımadalar
 [Old random]
-Eski rastgele
+Parçalı Kıyı
 [Open at least one colony to start a match.]
 Bir maça başlamak için en az bir koloni açın.
 [Open book]
@@ -1566,3 +1566,9 @@ Seçimi kullan
 Bu dünyayı keşfetmek için bir önizleme oluşturun.
 [More workers jump-start colony growth. Changes the generated map.]
 Daha fazla işçi koloni büyümesini hızlandırır. Bu ayar oluşturulan haritayı değiştirir.
+[Channel width]
+Kanal genişliği
+[Land bridge width]
+Kara köprüsü genişliği
+[Lake size]
+Göl boyutu

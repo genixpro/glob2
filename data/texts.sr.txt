@@ -605,9 +605,9 @@ Num Lock
 [ok]
 У реду
 [old islands terrain]
-насумична острва (старо)
+Кршевити архипелаг
 [old random terrain]
-насумични терен (старо)
+Разуђена обала
 [on press]
 Притисак
 [On the spot]
@@ -1363,9 +1363,9 @@ Cortex
 [No AI orders]
 Без наређења ВИ
 [Old islands]
-Стара острва
+Кршевити архипелаг
 [Old random]
-Стари случајни
+Разуђена обала
 [Open at least one colony to start a match.]
 Отворите бар једну колонију да бисте започели меч.
 [Open book]
@@ -1558,3 +1558,9 @@ Cortex
 Направите преглед да бисте истражили овај свет.
 [More workers jump-start colony growth. Changes the generated map.]
 Више радника убрзава раст колоније. Ово подешавање мења генерисану мапу.
+[Channel width]
+Ширина канала
+[Land bridge width]
+Ширина копненог моста
+[Lake size]
+Величина језера

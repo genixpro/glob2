@@ -617,9 +617,9 @@ Num Lock
 [ok]
 확인
 [old islands terrain]
-기존 무작위 섬
+험준한 군도
 [old random terrain]
-기존 무작위 지형
+갈라진 해안
 [on press]
 누를 때
 [On the spot]
@@ -1359,9 +1359,9 @@ AI 전략 및 대응
 [No AI orders]
 AI 명령 없음
 [Old islands]
-구형 섬 생성
+험준한 군도
 [Old random]
-구형 무작위 생성
+갈라진 해안
 [Open at least one colony to start a match.]
 매치를 시작하려면 콜로니를 하나 이상 여세요.
 [Open book]
@@ -1554,3 +1554,9 @@ AI 명령 없음
 이 세계를 탐험하려면 미리보기를 생성하세요.
 [More workers jump-start colony growth. Changes the generated map.]
 더 많은 일꾼이 식민지 성장을 가속화합니다. 이 설정은 생성된 지도를 변경합니다.
+[Channel width]
+수로 너비
+[Land bridge width]
+육교 너비
+[Lake size]
+호수 크기

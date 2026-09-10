@@ -617,9 +617,9 @@ di antaranya
 [ok]
 Oke
 [old islands terrain]
-pulau acak lama
+Kepulauan Terjal
 [old random terrain]
-medan acak lama
+Pesisir Terpecah
 [on press]
 Ditekan
 [On the spot]
@@ -1359,9 +1359,9 @@ Sedang - Eksperimental
 [No AI orders]
 Tidak ada perintah AI
 [Old islands]
-Pulau versi lama
+Kepulauan Terjal
 [Old random]
-Acak lama
+Pesisir Terpecah
 [Open at least one colony to start a match.]
 Buka setidaknya satu koloni untuk memulai pertandingan.
 [Open book]
@@ -1554,3 +1554,9 @@ Pertarungan cepat di peta yang telah dibuat sebelumnya: hanya kecepatannya yang 
 Hasilkan pratinjau untuk menjelajahi dunia ini.
 [More workers jump-start colony growth. Changes the generated map.]
 Lebih banyak pekerja mempercepat pertumbuhan koloni. Pengaturan ini mengubah peta yang dihasilkan.
+[Channel width]
+Lebar kanal
+[Land bridge width]
+Lebar jembatan darat
+[Lake size]
+Ukuran danau

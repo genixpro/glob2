@@ -605,9 +605,9 @@ z toho
 [ok]
 Budiž
 [old islands terrain]
-náhodné ostrovy (staré)
+Členité souostroví
 [old random terrain]
-náhodný terén (starý)
+Roztříštěné pobřeží
 [on press]
 Stisk
 [On the spot]
@@ -1363,9 +1363,9 @@ Střední – Experimentální
 [No AI orders]
 Žádné příkazy AI
 [Old islands]
-Staré ostrovy
+Členité souostroví
 [Old random]
-Staré náhodné
+Roztříštěné pobřeží
 [Open at least one colony to start a match.]
 Otevřete alespoň jednu kolonii a začněte zápas.
 [Open book]
@@ -1558,3 +1558,9 @@ Rychlá bitva na předem připravených mapách: mění se pouze rychlost (dvojn
 Vygenerujte náhled a prozkoumejte tento svět.
 [More workers jump-start colony growth. Changes the generated map.]
 Více dělníků urychluje růst kolonie. Toto nastavení změní vygenerovanou mapu.
+[Channel width]
+Šířka průlivu
+[Land bridge width]
+Šířka pevninského mostu
+[Lake size]
+Velikost jezera

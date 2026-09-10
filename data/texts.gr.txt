@@ -673,9 +673,9 @@ numlock
 [ok]
 Εντάξει
 [old islands terrain]
-παλιά τυχαία νησιά
+Τραχύ Αρχιπέλαγος
 [old random terrain]
-παλιά τυχαία πεδία
+Κατακερματισμένη Ακτή
 [on press]
 Πάτημα
 [On the spot]
@@ -1433,9 +1433,9 @@ Cortex
 [No AI orders]
 Χωρίς εντολές AI
 [Old islands]
-Παλιά νησιά
+Τραχύ Αρχιπέλαγος
 [Old random]
-Παλιό τυχαίο
+Κατακερματισμένη Ακτή
 [Open at least one colony to start a match.]
 Ανοίξτε τουλάχιστον μία αποικία για να ξεκινήσετε έναν αγώνα.
 [Open book]
@@ -1628,3 +1628,9 @@ Cortex
 Δημιουργήστε μια προεπισκόπηση για να εξερευνήσετε αυτόν τον κόσμο.
 [More workers jump-start colony growth. Changes the generated map.]
 Περισσότεροι εργαζόμενοι επιταχύνουν την ανάπτυξη των αποικιών. Αυτή η ρύθμιση αλλάζει τον χάρτη που δημιουργείται.
+[Channel width]
+Πλάτος καναλιού
+[Land bridge width]
+Πλάτος χερσαίας γέφυρας
+[Lake size]
+Μέγεθος λίμνης

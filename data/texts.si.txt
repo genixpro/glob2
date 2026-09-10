@@ -605,9 +605,9 @@ od katerih
 [ok]
 Potrdi
 [old islands terrain]
-naključni otoki (staro)
+Razgibano otočje
 [old random terrain]
-naključni teren (staro)
+Razdrobljena obala
 [on press]
 Pritisk
 [On the spot]
@@ -1363,9 +1363,9 @@ Srednje – eksperimentalno
 [No AI orders]
 Brez ukazov UI
 [Old islands]
-Stari otoki
+Razgibano otočje
 [Old random]
-Staro naključje
+Razdrobljena obala
 [Open at least one colony to start a match.]
 Odprite vsaj eno kolonijo, da začnete tekmo.
 [Open book]
@@ -1558,3 +1558,9 @@ Hitra bitka na vnaprej pripravljenih zemljevidih: spreminja se le hitrost (dvojn
 Ustvarite predogled za raziskovanje tega sveta.
 [More workers jump-start colony growth. Changes the generated map.]
 Več delavcev pospeši rast kolonije. Ta nastavitev spremeni ustvarjeni zemljevid.
+[Channel width]
+Širina kanala
+[Land bridge width]
+Širina kopenskega mostu
+[Lake size]
+Velikost jezera

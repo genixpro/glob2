@@ -627,9 +627,9 @@ waarvan
 [ok]
 Ok
 [old islands terrain]
-Oude eilanden
+Ruige Archipel
 [old random terrain]
-Oud willekeurig terrein
+Versplinterde Kust
 [on press]
 Indrukken
 [On the spot]
@@ -1387,9 +1387,9 @@ Gemiddeld - Experimenteel
 [No AI orders]
 Geen AI-opdrachten
 [Old islands]
-Eilanden (oude generator)
+Ruige Archipel
 [Old random]
-Willekeurig (oude generator)
+Versplinterde Kust
 [Open at least one colony to start a match.]
 Open minstens één kolonie om een wedstrijd te starten.
 [Open book]
@@ -1582,3 +1582,9 @@ Snelle strijd op vooraf gemaakte kaarten: alleen de snelheid verandert (dubbele 
 Genereer een voorbeeld om deze wereld te verkennen.
 [More workers jump-start colony growth. Changes the generated map.]
 Meer werkers versnellen de groei van de kolonie. Deze instelling verandert de gegenereerde kaart.
+[Channel width]
+Kanaalbreedte
+[Land bridge width]
+Breedte van de landbrug
+[Lake size]
+Meergrootte

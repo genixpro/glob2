@@ -776,3 +776,6 @@
 [Quick clash on premade maps: only speed changes (2x).]
 [Generate a preview to explore this world.]
 [More workers jump-start colony growth. Changes the generated map.]
+[Channel width]
+[Land bridge width]
+[Lake size]

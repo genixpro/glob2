@@ -607,9 +607,9 @@ meta-%0
 [ok]
 ﻧﻌﻢ
 [old islands terrain]
-ﺟُﺰﺭ ﻋﺸﻮﺍﺋﻴﺔ ﺑﻨﻤﻂ ﻗﺪﻳﻢ
+الأرخبيل الوعر
 [old random terrain]
-ﺗﻀﺎﺭﻳﺲ ﻋﺸﻮﺍﺋﻴﺔ ﺑﻨﻤﻂ ﻗﺪﻳﻢ
+الساحل المتشظي
 [on press]
 ﻋﻨﺪ ﺍﻟﻀﻐﻂ
 [On the spot]
@@ -1361,9 +1361,9 @@ Cortex
 [No AI orders]
 لا توجد أوامر الذكاء الاصطناعي
 [Old islands]
-الجزر القديمة
+الأرخبيل الوعر
 [Old random]
-عشوائية قديمة
+الساحل المتشظي
 [Open at least one colony to start a match.]
 افتح مستعمرة واحدة على الأقل لبدء المباراة.
 [Open book]
@@ -1556,3 +1556,9 @@ Cortex
 قم بإنشاء معاينة لاستكشاف هذا العالم.
 [More workers jump-start colony growth. Changes the generated map.]
 زيادة العمال تسرّع نمو المستعمرة في البداية. يغيّر هذا الإعداد الخريطة المنشأة.
+[Channel width]
+عرض القناة
+[Land bridge width]
+عرض الجسر البري
+[Lake size]
+حجم البحيرة

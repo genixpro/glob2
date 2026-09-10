@@ -611,9 +611,9 @@ dels quals
 [ok]
 OK
 [old islands terrain]
-illes aleatòries antigues
+Arxipèlag Abrupte
 [old random terrain]
-vell terreny aleatori
+Costa Fragmentada
 [on press]
 En prémer
 [On the spot]
@@ -1371,9 +1371,9 @@ Mitjana - Experimental
 [No AI orders]
 Sense ordres d'IA
 [Old islands]
-Illes (generador antic)
+Arxipèlag Abrupte
 [Old random]
-Aleatori (generador antic)
+Costa Fragmentada
 [Open at least one colony to start a match.]
 Obre almenys una colònia per iniciar una partida.
 [Open book]
@@ -1566,3 +1566,9 @@ Batalla ràpida en mapes predissenyats: només canvia la velocitat (velocitat do
 Genera una vista prèvia per explorar aquest món.
 [More workers jump-start colony growth. Changes the generated map.]
 Més treballadors acceleren el creixement de les colònies. Aquesta configuració canvia el mapa generat.
+[Channel width]
+Amplada del canal
+[Land bridge width]
+Amplada del pont de terra
+[Lake size]
+Mida del llac
