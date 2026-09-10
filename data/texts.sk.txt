@@ -1572,3 +1572,39 @@ Viac robotníkov urýchľuje rast kolónií. Toto nastavenie zmení vygenerovan�
 Šírka pevninského mosta
 [Lake size]
 Veľkosť jazera
+[Contested commons]
+Sporné spoločné územie
+[Lattice]
+Mriežka
+[Maze]
+Bludisko
+[Fjord continent]
+Kontinent s fjordmi
+[Islet size]
+Veľkosť ostrovčeka
+[Home radius]
+Polomer základne
+[Cell size]
+Veľkosť bunky
+[Room size]
+Veľkosť miestnosti
+[Corridor width]
+Šírka chodby
+[Loopiness]
+Hustota slučiek
+[Home island size]
+Veľkosť štartovacieho ostrova
+[Commons size]
+Veľkosť spoločného územia
+[Moat width]
+Šírka vodnej priekopy
+[Bridge count]
+Počet mostov
+[Continent size]
+Veľkosť kontinentu
+[Coast roughness]
+Členitosť pobrežia
+[Fjord width]
+Šírka fjordu
+[Resource islands]
+Ostrovy so surovinami

@@ -1,6 +1,8 @@
 # Generator defaults and shared controls
 
-Random maps now start with generator-specific recipes that leave more grassy building room. The custom-game lobby from PR #237 and the map editor use the same names, available controls, ranges, steps, defaults, and per-method setting memory. Old Random is **Shattered Coast**; Old Islands is **Rugged Archipelago**.
+The generators now use a modular registry and per-attempt random state. See the [module and extension guide](ADDING_A_GENERATOR.md) and [refactor measurements and map previews](refactor/RESULTS.md). The tuning study below is the frozen PR #238 baseline.
+
+Random maps now start with generator-specific recipes that leave more grassy building room. The custom-game lobby from PR #237 and the map editor use the same names, available controls, ranges, steps, defaults, and per-method setting memory. Old Random is **Shattered Coast**; Old Islands is **Rugged Archipelago**. The modular catalog also includes **Contested Commons**, **Lattice**, **Maze**, and **Fjord Continent**.
 
 ![Coverage comparison](coverage.png)
 
@@ -8,9 +10,9 @@ Random maps now start with generator-specific recipes that leave more grassy bui
 
 ## One source of truth
 
-`src/map/generator/MapGenerationDescriptor.cpp` owns the control definitions. A definition contains the descriptor field, translation key, group, minimum, maximum, step and default. `setMethodDefaults()` applies these definitions. `MapGenerationHistory` remembers terrain edits per method while carrying dimensions, colony count and starting workers between methods.
+Each module under `src/map/generator/generators/` owns its control definitions, named options and generation sequence. The registry supplies those definitions to both UIs and the analysis tools. `GenerationRequest::setMethodDefaults()` applies the registered defaults; `GenerationHistory` remembers per-generator options while carrying shared settings between modes. The historical descriptor is isolated in `compatibility/`.
 
-Both `CustomGameScreen` and `NewMapScreen` render these definitions. The command-line generation stress tool samples the same valid ranges and steps, including all eight procedural modes. The lobby keeps its Terrain / Resources / Layout sections and scrolling; the editor uses the existing native Number widgets. The lobby's starting-worker rules control reads the same shared definition. A shared terrain-weight check rejects an all-zero terrain recipe in both screens.
+Both `CustomGameScreen` and `NewMapScreen` render these definitions. The command-line generation stress tool samples the same valid ranges and steps for all 12 procedural modes. The lobby keeps its Terrain / Resources / Layout sections and scrolling; the editor uses the existing native Number widgets. The lobby's starting-worker rules control reads the same shared definition. A shared terrain-weight check rejects an all-zero terrain recipe in both screens.
 
 The study runner requests the compiled presets. The plotting tool requests `MapGeneratorStudy --catalog` and resolves names from the English translation table; the documentation and charts therefore do not maintain another copy of the current presets or names. Checked-in JSON/CSV is a historical measurement snapshot, not runtime configuration. Previous-setting cohorts remain explicit frozen configurations so later default changes cannot alter the baseline.
 
@@ -24,6 +26,8 @@ All 33 language tables have the renamed generators and new labels. Existing tran
 - Remove the wheat, wood, stone and algae ratio widgets, whose serialized fields are not read by resource placement. Fruit remains configurable in the four modern height-map modes. Existing resource-placement algorithms are preserved.
 - Restore the original legacy resource functions removed as unused code on newer master, then call them after placing starting bases/workers. Fix Rugged Archipelago base validation to use the current team instead of indexing team -1.
 - Parameterize existing channel, bridge, island and crater constants without replacing the generation algorithms.
+- Add Contested Commons, Lattice, Maze and Fjord Continent as registered modules. Their layout controls come from the same metadata as both UIs and the study catalog.
+- Fix Lattice and Maze shoreline generation, enlarge their playable home areas, and use clumped resources. Maze uses coarse 20/24/32-tile cells and stone seams inside its water walls. Fjord guarantees clumped wheat and wood on both sides of every fjord.
 
 ## Why these bounds and defaults
 
