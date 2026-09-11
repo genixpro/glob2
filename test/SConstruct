@@ -81,6 +81,8 @@ GradientBFSTest.cpp
 
 MapQueryTest.cpp
 GradientTest.cpp
+FertilityFieldTest.cpp
+../src/map/FertilityField.cpp
 MapQueryTestStubs.cpp
 ../src/map/Map.cpp
 ../src/map/gradient/MapGradientField.cpp
