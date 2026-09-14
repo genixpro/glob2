@@ -153,21 +153,23 @@ jobs:
       - name: Build and run custom-game setup regressions
         run: |
           timeout 60s ./build/src/MapGeneratorDefaultsTest glob2-map-defaults-ci
-          # Golden maps: rows exist per platform and this platform must have them. --print first,
-          # so the rows a new platform would record are in the log even when the check that
-          # follows fails and can be committed from there.
-          # The passes share nothing, and the sweep shards by generator, so they run
-          # side by side with separate profiles and logs replayed in order.
+          # Golden maps: rows exist per platform and this platform must have them. The check and
+          # the sweep's four shards share nothing, so they run side by side with separate
+          # profiles; logs are replayed in order. A failing check then prints the rows this
+          # platform produces, so a new platform's rows can be committed from the log.
           golden() { log=$1; shift; timeout 600s ./build/src/MapGeneratorGoldenTest "$@" > "$log" 2>&1; }
-          golden /tmp/golden-print.log glob2-golden-print --print & print=$!
           golden /tmp/golden-rows.log glob2-golden-rows --require-rows & rows=$!
           sweeps=()
           for shard in 0 1 2 3; do
             golden /tmp/golden-sweep-$shard.log glob2-golden-sweep-$shard --sweep $shard/4 & sweeps+=($!)
           done
           status=0
-          wait $print || status=1; cat /tmp/golden-print.log
-          wait $rows || status=1; cat /tmp/golden-rows.log
+          if ! wait $rows; then
+            status=1
+            golden /tmp/golden-print.log glob2-golden-print --print || true
+            cat /tmp/golden-print.log
+          fi
+          cat /tmp/golden-rows.log
           for i in 0 1 2 3; do wait ${sweeps[$i]} || status=1; cat /tmp/golden-sweep-$i.log; done
           [ $status = 0 ]
           timeout 180s ./build/src/CustomGameSetupHarness
