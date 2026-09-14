@@ -81,8 +81,8 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: ${{ env.CCACHE_DIR }}
-          key: ccx-e3-main-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: ccx-e3-main-${{ matrix.runner }}-
+          key: ccx-e4-main-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: ccx-e4-main-${{ matrix.runner }}-
 
       - name: Reset the cache statistics
         id: cache_ready
@@ -321,7 +321,7 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: ${{ env.CCACHE_DIR }}
-          key: ccx-e3-main-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
+          key: ccx-e4-main-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
 
   linux-variants:
     name: linux variants (${{ matrix.image }})
@@ -383,8 +383,8 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: ${{ env.CCACHE_DIR }}
-          key: ccx-e3-variants-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: ccx-e3-variants-${{ matrix.runner }}-
+          key: ccx-e4-variants-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: ccx-e4-variants-${{ matrix.runner }}-
 
       - name: Reset the cache statistics
         id: cache_ready
@@ -438,11 +438,16 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: ${{ env.CCACHE_DIR }}
-          key: ccx-e3-variants-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
+          key: ccx-e4-variants-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
 
   windows:
     name: windows (mingw-w64)
     runs-on: windows-latest
+    env:
+      CCACHE: 1
+      CCACHE_DIR: ${{ github.workspace }}\.ccache
+      CCACHE_COMPILERCHECK: content
+      CCACHE_MAXSIZE: 5G
     defaults:
       run:
         shell: msys2 {0}
@@ -470,25 +475,39 @@ jobs:
             mingw-w64-x86_64-boost
             mingw-w64-x86_64-libepoxy
             mingw-w64-x86_64-libsystre
+            mingw-w64-x86_64-ccache
 
       - uses: actions/checkout@v4
 
-      - name: Build glob2
-        run: scons -j$(nproc) release=1 mingw=1
+      - name: Restore the compiler cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ env.CCACHE_DIR }}
+          key: ccx-e4-windows-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: ccx-e4-windows-
+
+      - name: Reset the cache statistics
+        id: cache_ready
+        run: |
+          ccache -z
+          echo "CCACHE_RUN_START=$(date +%s)" >> "$GITHUB_ENV"
+
+      - name: Build glob2 and the regression harnesses
+        run: |
+          scons -j$(nproc) release=1 mingw=1 server=0 build/src/glob2.exe \
+            clearing-gradient-test point-bar-render-test trapped-unit-test hiring-bucket-test \
+            map-render-resize-test savegame-safety-test team-stats-save-test
 
       - name: Test clearing flag resource bounds
         run: |
-          scons -j$(nproc) release=1 mingw=1 server=0 clearing-gradient-test
           python3 test/run-savegame-safety-tests.py --check-preferences build/src/ClearingFlagGradientTest.exe
       - name: Test status-bar bounds in software rendering
         run: |
-          scons -j$(nproc) release=1 mingw=1 server=0 point-bar-render-test
           SDL_AUDIODRIVER=dummy SDL_VIDEODRIVER=dummy \
             ./build/src/point-bar-render-test.exe software
 
       - name: Test trapped colony elimination
         run: |
-          scons -j$(nproc) release=1 mingw=1 server=0 trapped-unit-test
           python3 test/run-savegame-safety-tests.py --check-preferences build/src/TrappedUnitLifecycleTest.exe
 
       - name: Test torus geometry, picking and cloud coordinates
@@ -504,7 +523,6 @@ jobs:
 
       - name: Build and run the hiring bucket regression
         run: |
-          scons -j$(nproc) release=1 mingw=1 server=0 hiring-bucket-test
           python3 test/run-savegame-safety-tests.py --check-preferences build/src/HiringBucketHarness.exe .
 
       - name: Check game rendering across repeated map copies
@@ -512,20 +530,34 @@ jobs:
           SDL_VIDEODRIVER: dummy
           SDL_AUDIODRIVER: dummy
         run: |
-          scons -j$(nproc) release=1 mingw=1 server=0 map-render-resize-test
           python3 test/run-savegame-safety-tests.py --check-preferences build/src/MapRenderResizeHarness.exe
 
       - name: Test savegame loading and atomic autosaves
         run: |
-          scons -j$(nproc) release=1 mingw=1 server=0 savegame-safety-test
           python3 test/run-savegame-safety-tests.py build/src/SavegameSafetyHarness.exe
 
       - name: Test team statistics save compatibility
         run: |
-          scons -j$(nproc) release=1 mingw=1 server=0 team-stats-save-test
           python3 test/run-savegame-safety-tests.py --check-preferences build/src/TeamStatsSaveHarness.exe .
           python3 test/run-savegame-safety-tests.py --check-preferences --expect-stdout test/fixtures/team-stats/version88.expected.txt build/src/TeamStatsSaveHarness.exe . --legacy test/fixtures/team-stats/version88.game
           python3 test/run-savegame-safety-tests.py --check-preferences --expect-stdout test/fixtures/team-stats/version84.expected.txt build/src/TeamStatsSaveHarness.exe . --legacy games/gd-small-2ai.game
 
       - name: Build the YOG server
         run: scons -j$(nproc) release=1 mingw=1 server=1 --build=build-server
+
+      - name: Report the cache statistics
+        if: ${{ !cancelled() && steps.cache_ready.outcome == 'success' }}
+        run: ccache -s -v
+
+      - name: Drop cache entries this run did not use
+        if: ${{ !cancelled() && steps.cache_ready.outcome == 'success' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/heads/ci-perf/')) }}
+        run: |
+          ccache --evict-older-than "$(( $(date +%s) - CCACHE_RUN_START + 60 ))s"
+          ccache -s
+
+      - name: Save the compiler cache
+        if: ${{ !cancelled() && steps.cache_ready.outcome == 'success' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/heads/ci-perf/')) }}
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ env.CCACHE_DIR }}
+          key: ccx-e4-windows-${{ github.run_id }}-${{ github.run_attempt }}
