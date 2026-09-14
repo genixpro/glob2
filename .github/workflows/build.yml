@@ -75,8 +75,8 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: ${{ env.CCACHE_DIR }}
-          key: ccache-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: ccache-${{ matrix.runner }}-
+          key: ccx-base-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: ccx-base-${{ matrix.runner }}-
 
       - name: Reset the cache statistics
         id: cache_ready
@@ -318,11 +318,11 @@ jobs:
       # entries are content-addressed, so objects compiled during a run whose
       # tests failed are still the right objects.
       - name: Save the compiler cache
-        if: ${{ !cancelled() && steps.cache_ready.outcome == 'success' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/master' }}
+        if: ${{ !cancelled() && steps.cache_ready.outcome == 'success' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/heads/ci-perf/')) }}
         uses: actions/cache/save@v4
         with:
           path: ${{ env.CCACHE_DIR }}
-          key: ccache-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
+          key: ccx-base-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
 
   windows:
     name: windows (mingw-w64)
