@@ -81,8 +81,8 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: ${{ env.CCACHE_DIR }}
-          key: ccx-e4-main-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: ccx-e4-main-${{ matrix.runner }}-
+          key: ccx-e5-main-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: ccx-e5-main-${{ matrix.runner }}-
 
       - name: Reset the cache statistics
         id: cache_ready
@@ -321,7 +321,7 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: ${{ env.CCACHE_DIR }}
-          key: ccx-e4-main-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
+          key: ccx-e5-main-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
 
   linux-variants:
     name: linux variants (${{ matrix.image }})
@@ -383,8 +383,8 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: ${{ env.CCACHE_DIR }}
-          key: ccx-e4-variants-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: ccx-e4-variants-${{ matrix.runner }}-
+          key: ccx-e5-variants-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: ccx-e5-variants-${{ matrix.runner }}-
 
       - name: Reset the cache statistics
         id: cache_ready
@@ -438,7 +438,7 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: ${{ env.CCACHE_DIR }}
-          key: ccx-e4-variants-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
+          key: ccx-e5-variants-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
 
   windows:
     name: windows (mingw-w64)
@@ -455,10 +455,9 @@ jobs:
       - uses: msys2/setup-msys2@v2
         with:
           msystem: MINGW64
-          update: true
+          update: false
           install: >-
-            git
-            mingw-w64-x86_64-toolchain
+            mingw-w64-x86_64-gcc
             mingw-w64-x86_64-pkgconf
             mingw-w64-x86_64-python
             mingw-w64-x86_64-scons
@@ -483,8 +482,8 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: ${{ env.CCACHE_DIR }}
-          key: ccx-e4-windows-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: ccx-e4-windows-
+          key: ccx-e5-windows-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: ccx-e5-windows-
 
       - name: Reset the cache statistics
         id: cache_ready
@@ -560,4 +559,4 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: ${{ env.CCACHE_DIR }}
-          key: ccx-e4-windows-${{ github.run_id }}-${{ github.run_attempt }}
+          key: ccx-e5-windows-${{ github.run_id }}-${{ github.run_attempt }}
