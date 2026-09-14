@@ -683,3 +683,6 @@ private:
 	Uint32 shootingStep;
 	Sint32 shootingCooldown;
 };
+
+// CI perf probe: a declaration that changes every includer's preprocessed output.
+inline constexpr int ciPerfProbeBuildingHeader = 1;
