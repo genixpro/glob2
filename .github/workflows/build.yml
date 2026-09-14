@@ -24,7 +24,9 @@ jobs:
       # and time_macros would let it cache the __DATE__/__TIME__ build banner in
       # GlobalContainerArgs.cpp.
       CCACHE_COMPILERCHECK: content
-      CCACHE_MAXSIZE: 1G
+      # A ceiling, not a working size: the cache saved is pruned to the entries
+      # the run used, so nothing is evicted while builds are still reading it.
+      CCACHE_MAXSIZE: 5G
     strategy:
       fail-fast: false
       matrix:
@@ -79,12 +81,14 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: ${{ env.CCACHE_DIR }}
-          key: ccx-e2-main-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: ccx-e2-main-${{ matrix.runner }}-
+          key: ccx-e3-main-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: ccx-e3-main-${{ matrix.runner }}-
 
       - name: Reset the cache statistics
         id: cache_ready
-        run: ccache -z
+        run: |
+          ccache -z
+          echo "CCACHE_RUN_START=$(date +%s)" >> "$GITHUB_ENV"
 
       - name: Build glob2 and the regression harnesses
         run: |
@@ -303,12 +307,21 @@ jobs:
       # evict the entries PRs restore from. Saved even when a step failed: the
       # entries are content-addressed, so objects compiled during a run whose
       # tests failed are still the right objects.
+      # Keep only what this run compiled or reused; a hit refreshes an entry's
+      # timestamp. Without this, every save carries all earlier master
+      # commits' objects forward until the size limit forces blind eviction.
+      - name: Drop cache entries this run did not use
+        if: ${{ !cancelled() && steps.cache_ready.outcome == 'success' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/heads/ci-perf/')) }}
+        run: |
+          ccache --evict-older-than "$(( $(date +%s) - CCACHE_RUN_START + 60 ))s"
+          ccache -s
+
       - name: Save the compiler cache
         if: ${{ !cancelled() && steps.cache_ready.outcome == 'success' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/heads/ci-perf/')) }}
         uses: actions/cache/save@v4
         with:
           path: ${{ env.CCACHE_DIR }}
-          key: ccx-e2-main-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
+          key: ccx-e3-main-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
 
   linux-variants:
     name: linux variants (${{ matrix.image }})
@@ -323,7 +336,9 @@ jobs:
       # and time_macros would let it cache the __DATE__/__TIME__ build banner in
       # GlobalContainerArgs.cpp.
       CCACHE_COMPILERCHECK: content
-      CCACHE_MAXSIZE: 1G
+      # A ceiling, not a working size: the cache saved is pruned to the entries
+      # the run used, so nothing is evicted while builds are still reading it.
+      CCACHE_MAXSIZE: 5G
     strategy:
       fail-fast: false
       matrix:
@@ -368,12 +383,14 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: ${{ env.CCACHE_DIR }}
-          key: ccx-e2-variants-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: ccx-e2-variants-${{ matrix.runner }}-
+          key: ccx-e3-variants-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: ccx-e3-variants-${{ matrix.runner }}-
 
       - name: Reset the cache statistics
         id: cache_ready
-        run: ccache -z
+        run: |
+          ccache -z
+          echo "CCACHE_RUN_START=$(date +%s)" >> "$GITHUB_ENV"
 
       - name: Build and run the tests
         working-directory: test
@@ -407,12 +424,21 @@ jobs:
       # evict the entries PRs restore from. Saved even when a step failed: the
       # entries are content-addressed, so objects compiled during a run whose
       # tests failed are still the right objects.
+      # Keep only what this run compiled or reused; a hit refreshes an entry's
+      # timestamp. Without this, every save carries all earlier master
+      # commits' objects forward until the size limit forces blind eviction.
+      - name: Drop cache entries this run did not use
+        if: ${{ !cancelled() && steps.cache_ready.outcome == 'success' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/heads/ci-perf/')) }}
+        run: |
+          ccache --evict-older-than "$(( $(date +%s) - CCACHE_RUN_START + 60 ))s"
+          ccache -s
+
       - name: Save the compiler cache
         if: ${{ !cancelled() && steps.cache_ready.outcome == 'success' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/heads/ci-perf/')) }}
         uses: actions/cache/save@v4
         with:
           path: ${{ env.CCACHE_DIR }}
-          key: ccx-e2-variants-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
+          key: ccx-e3-variants-${{ matrix.runner }}-${{ github.run_id }}-${{ github.run_attempt }}
 
   windows:
     name: windows (mingw-w64)
