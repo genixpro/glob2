@@ -32,5 +32,10 @@
       "raw_sha256": "a58e204130de1e880dcf17c7b92896af647f12539962b404eb7bd90b2d466935",
       "raw_bytes": 944070
     }
+  },
+  "additional_comparison": {
+    "master_commit": "5252e1b09",
+    "pr_commit": "7c384cfba",
+    "result": "all four raw files match byte for byte and match the hashes above"
   }
 }
