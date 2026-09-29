@@ -1,0 +1,36 @@
+{
+  "master_commit": "6076fdc45d1a4aa9de286a10bc5d24c7f9a68d3f",
+  "pr_commit": "2c742ee6708919550dd386d624a2806b637a9956",
+  "files": {
+    "base-cross-replay.checksums.gz": {
+      "sha256": "be76a1d07fa893ed1fcd0fac85deec97aaf2ed9a5b3d85f03ae342df96aa5294",
+      "raw_sha256": "a1fa3456711d78346f13bb85582224231060faed2b93a428c8e390e5a7ba94b8",
+      "raw_bytes": 3634552
+    },
+    "pr-cross-replay.checksums.gz": {
+      "sha256": "be76a1d07fa893ed1fcd0fac85deec97aaf2ed9a5b3d85f03ae342df96aa5294",
+      "raw_sha256": "a1fa3456711d78346f13bb85582224231060faed2b93a428c8e390e5a7ba94b8",
+      "raw_bytes": 3634552
+    },
+    "base-numbi.checksums.gz": {
+      "sha256": "507536a918d66dd66bac8e55bf400fc66a37f78e6e71b63ac0c13df15659044e",
+      "raw_sha256": "d38e424e503157c57f83cde19bd0e158ae4c1a03a99da280a8c3dde360749c3a",
+      "raw_bytes": 7924204
+    },
+    "pr-numbi.checksums.gz": {
+      "sha256": "507536a918d66dd66bac8e55bf400fc66a37f78e6e71b63ac0c13df15659044e",
+      "raw_sha256": "d38e424e503157c57f83cde19bd0e158ae4c1a03a99da280a8c3dde360749c3a",
+      "raw_bytes": 7924204
+    },
+    "numbi-initial.game.gz": {
+      "sha256": "8b3eefa69015c9ced3edfe6ed42860403053f6f006a50fbbfb32fdeb51610d50",
+      "raw_sha256": "8b3eefa69015c9ced3edfe6ed42860403053f6f006a50fbbfb32fdeb51610d50",
+      "raw_bytes": 267746
+    },
+    "numbi-final.game.gz": {
+      "sha256": "dba47a37934655ace13d8346370f25656b34f0f6fe12b3de37ffd2c6e439e4f5",
+      "raw_sha256": "dba47a37934655ace13d8346370f25656b34f0f6fe12b3de37ffd2c6e439e4f5",
+      "raw_bytes": 944073
+    }
+  }
+}
